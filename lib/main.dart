@@ -7,6 +7,8 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:strawberry/feed.dart';
+import 'package:strawberry/functions.dart';
 
 Future<void> main() async {
   // SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
@@ -14,7 +16,7 @@ Future<void> main() async {
   await Firebase.initializeApp();
   runApp(MaterialApp(
     title: 'Your title',
-    home: MyApp(),
+    home: feed(),
   ));
 }
 
