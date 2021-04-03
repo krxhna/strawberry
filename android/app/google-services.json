@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1098725003780",
+    "project_id": "strawberry-fd36d",
+    "storage_bucket": "strawberry-fd36d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1098725003780:android:c378ae8d05df0b2ae4db51",
+        "android_client_info": {
+          "package_name": "com.krxhna.strawberry"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1098725003780-1f8n3nb7c335jfg9fbojbktqob2vquoi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTWF56lFFQnNhqoSuN6oYW-w0T0Z7jmog"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1098725003780-1f8n3nb7c335jfg9fbojbktqob2vquoi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
