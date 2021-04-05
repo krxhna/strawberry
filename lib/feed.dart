@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:strawberry/home.dart';
 import 'package:strawberry/main.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:strawberry/functions.dart';
+import 'package:strawberry/home.dart';
 
 //data
 //
@@ -27,10 +29,30 @@ class feed extends StatefulWidget {
   _feedState createState() => _feedState();
 }
 
+update() {
+  return StreamBuilder(
+    stream: FirebaseFirestore.instance.collection("data").snapshots(),
+    builder: (BuildContext context, AsyncSnapshot snapshot) {
+      DocumentSnapshot data = snapshot.data.docs[1];
+      return !snapshot.hasData ? Text('PLease Wait') : Text(data['price']);
+    },
+  );
+}
+
 class _feedState extends State<feed> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // appBar: AppBar(),
+      backgroundColor: Colors.white,
+      // floatingActionButton: FloatingActionButton(
+      //     onPressed: () {
+      //       Navigator.push(
+      //         context,
+      //         MaterialPageRoute(builder: (context) => Home()),
+      //       );
+      //     },
+      //     child: update()),
       body: Stack(
         children: [
           circle_left(-18.0, -90.0),

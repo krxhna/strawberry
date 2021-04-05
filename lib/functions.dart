@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'Web.dart';
 
-const maincolor = Colors.amber;
-const secondary_color = Colors.red;
+const maincolor = Colors.red;
+const secondary_color = Colors.amber;
 
 dec_container() {
   return Container(
@@ -89,10 +89,14 @@ cont(img_url, title, description, url, context) {
                                 )),
                       );
                     },
-                    child: Text(
-                      "read more..",
-                      style: TextStyle(
-                          color: maincolor, fontWeight: FontWeight.bold),
+                    child: Chip(
+                      elevation: 0,
+                      backgroundColor: Colors.white,
+                      label: Text(
+                        "read more..",
+                        style: TextStyle(
+                            color: maincolor, fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ),
                 ),
