@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:strawberry/functions.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class Web extends StatefulWidget {
@@ -23,7 +24,7 @@ class _WebState extends State<Web> {
             widget.url,
             style: TextStyle(fontSize: 15),
           ),
-          backgroundColor: Colors.orange,
+          backgroundColor: maincolor,
         ),
         body: WebView(
           initialUrl: widget.url,

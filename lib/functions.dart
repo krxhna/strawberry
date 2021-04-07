@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
 import 'Web.dart';
 
-const maincolor = Colors.red;
-const secondary_color = Colors.amber;
+// const maincolor = Color(0xff12c2e9);
+// const secondary_color = Color(0xffc471ed);
+const maincolor = Colors.blue;
+const secondary_color = Colors.green;
 
 dec_container() {
-  return Container(
-    height: 170,
-    width: 170,
-    decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        gradient: LinearGradient(colors: [maincolor, secondary_color])),
+  return Stack(
+    children: [
+      Container(
+        height: 170,
+        width: 170,
+        decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            gradient: LinearGradient(colors: [maincolor, secondary_color])),
+      ),
+    ],
   );
 }
 
@@ -41,21 +47,23 @@ circle_right(top, left) {
 cont(img_url, title, description, url, context) {
   return Padding(
     padding: const EdgeInsets.only(left: 20.0, right: 20, top: 40, bottom: 40),
-    child: new Container(
+    child: Container(
       child: Wrap(
         children: [
           Column(
             children: [
               Container(
-                  height: 250,
+                  height: MediaQuery.of(context).size.height * 0.4,
                   decoration: BoxDecoration(
-                      gradient:
-                          LinearGradient(colors: [maincolor, secondary_color])),
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    // gradient:
+                    //     LinearGradient(colors: [maincolor, secondary_color])
+                  ),
                   child: Image.network(img_url)),
               Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: Container(
-                  height: 150,
+                  height: MediaQuery.of(context).size.height * 0.2,
                   child: Center(
                     child: Text(
                       title,
@@ -68,7 +76,7 @@ cont(img_url, title, description, url, context) {
               Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: Container(
-                  height: 150,
+                  height: MediaQuery.of(context).size.height * 0.2,
                   child: Text(
                     description,
                     style: TextStyle(fontSize: 15),
@@ -89,14 +97,10 @@ cont(img_url, title, description, url, context) {
                                 )),
                       );
                     },
-                    child: Chip(
-                      elevation: 0,
-                      backgroundColor: Colors.white,
-                      label: Text(
-                        "read more..",
-                        style: TextStyle(
-                            color: maincolor, fontWeight: FontWeight.bold),
-                      ),
+                    child: Text(
+                      "read more..",
+                      style: TextStyle(
+                          color: maincolor, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
@@ -108,11 +112,20 @@ cont(img_url, title, description, url, context) {
       height: 500.00,
       width: 327.00,
       decoration: BoxDecoration(
-        color: Color(0xffffffff),
+        gradient: LinearGradient(colors: [
+          Colors.white.withOpacity(0.5),
+          Colors.white.withOpacity(0.3)
+        ]),
+        // border: Border.all(
+        //     // color: Colors.red[500],
+        //     ),
+        borderRadius: BorderRadius.all(Radius.circular(20)),
+        // color: Color(0xffffffff),
+
         boxShadow: [
           BoxShadow(
             offset: Offset(0.00, 3.00),
-            color: Color(0xff000000).withOpacity(0.16),
+            color: Color(0xff000000).withOpacity(0.05),
             blurRadius: 6,
           ),
         ],

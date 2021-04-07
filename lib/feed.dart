@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:strawberry/functions.dart';
 import 'package:strawberry/home.dart';
+import 'package:strawberry/fitness.dart';
 
 //data
 //
@@ -43,13 +44,14 @@ class _feedState extends State<feed> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // backgroundColor: Color(0xff211E2D),
       // appBar: AppBar(),
-      backgroundColor: Colors.white,
+      // backgroundColor: Colors.white,
       // floatingActionButton: FloatingActionButton(
       //     onPressed: () {
       //       Navigator.push(
       //         context,
-      //         MaterialPageRoute(builder: (context) => Home()),
+      //         MaterialPageRoute(builder: (context) => fitness()),
       //       );
       //     },
       //     child: update()),
@@ -59,23 +61,32 @@ class _feedState extends State<feed> {
           circle_left(400.0, -70.0),
           circle_left(580.0, 350.0),
           circle_left(200.0, 300.0),
-          StreamBuilder(
-            stream:
-                FirebaseFirestore.instance.collection("articles").snapshots(),
-            builder: (BuildContext context, AsyncSnapshot snapshot) {
-              return !snapshot.hasData
-                  ? Text('PLease Wait')
-                  : PageView.builder(
-                      scrollDirection: Axis.vertical,
-                      itemCount: snapshot.data.docs.length,
-                      itemBuilder: (context, index) {
-                        DocumentSnapshot data = snapshot.data.docs[index];
-                        return cont(data['urlToImage'], data['title'],
-                            data['description'], data['url'], context);
-                      },
-                    );
-            },
+          Container(
+            child: StreamBuilder(
+              stream:
+                  FirebaseFirestore.instance.collection("articles").snapshots(),
+              builder: (BuildContext context, AsyncSnapshot snapshot) {
+                return !snapshot.hasData
+                    ? Text('PLease Wait')
+                    : PageView.builder(
+                        scrollDirection: Axis.vertical,
+                        itemCount: snapshot.data.docs.length,
+                        itemBuilder: (context, index) {
+                          DocumentSnapshot data = snapshot.data.docs[index];
+                          return cont(data['urlToImage'], data['title'],
+                              data['description'], data['url'], context);
+                        },
+                      );
+              },
+            ),
           ),
+          // Padding(
+          //   padding: const EdgeInsets.all(15.0),
+          //   child: Text(
+          //     "Hello. ",
+          //     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
+          //   ),
+          // )
         ],
       ),
     );
