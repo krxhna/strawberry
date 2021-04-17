@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:strawberry/fitness.dart';
 import 'package:strawberry/functions.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -18,11 +19,16 @@ class _WebState extends State<Web> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        
         appBar: AppBar(
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(colors: [maincolor, secondary_color])),
+          ),
           elevation: 0,
           title: Text(
             widget.url,
-            style: TextStyle(fontSize: 15),
+            style: TextStyle(fontSize: 15, fontStyle: FontStyle.italic),
           ),
           backgroundColor: maincolor,
         ),

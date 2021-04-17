@@ -3,6 +3,9 @@
    <application
         android:label="strawberry"
         android:icon="@mipmap/ic_launcher">
+        <meta-data
+      android:name="com.google.android.gms.ads.APPLICATION_ID"
+      android:value="ca-app-pub-5524841399774996~4254912304"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

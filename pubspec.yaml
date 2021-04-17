@@ -23,10 +23,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  admob_flutter: ^1.0.1
   cloud_firestore: ^0.16.0+1
   cupertino_icons: ^1.0.1
   firebase_auth: ^0.20.1
   firebase_core: ^0.7.0
+  google_mobile_ads: ^0.12.1+1
   url_launcher: ^6.0.3
   webview_flutter: ^2.0.3
 

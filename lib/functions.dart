@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'Web.dart';
+import 'package:strawberry/feed.dart';
 
 // const maincolor = Color(0xff12c2e9);
 // const secondary_color = Color(0xffc471ed);
-const maincolor = Colors.blue;
-const secondary_color = Colors.green;
+const maincolor = Colors.green;
+const secondary_color = Colors.greenAccent;
 
 dec_container() {
   return Stack(
@@ -89,6 +90,9 @@ cont(img_url, title, description, url, context) {
                   padding: const EdgeInsets.all(8.0),
                   child: GestureDetector(
                     onTap: () {
+                      interstitialAd.load();
+                      interstitialAd.show();
+                      
                       Navigator.push(
                         context,
                         MaterialPageRoute(
