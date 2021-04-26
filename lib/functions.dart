@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:strawberry/fitness.dart';
 import 'Web.dart';
 import 'package:strawberry/feed.dart';
 
 // const maincolor = Color(0xff12c2e9);
 // const secondary_color = Color(0xffc471ed);
-const maincolor = Colors.green;
-const secondary_color = Colors.greenAccent;
+const maincolor = Color(0xff00dc64);
+const secondary_color = Color(0xff00dc64);
 
-dec_container() {
+var ran_colors = [Colors.amber, Colors.red, Colors.green, Colors.blue];
+
+dec_container(Color1, Color2) {
   return Stack(
     children: [
       Container(
@@ -15,31 +18,31 @@ dec_container() {
         width: 170,
         decoration: BoxDecoration(
             shape: BoxShape.circle,
-            gradient: LinearGradient(colors: [maincolor, secondary_color])),
+            gradient: LinearGradient(colors: [Color1, Color2])),
       ),
     ],
   );
 }
 
-circle_left(top, left) {
+circle_left(top, left, Color1, Color2) {
   return Positioned(
     top: top,
     left: left,
     child: Wrap(
       children: [
-        dec_container(),
+        dec_container(Color1, Color2),
       ],
     ),
   );
 }
 
-circle_right(top, left) {
+circle_right(top, left, Color1, Color2) {
   return Positioned(
     top: top,
     left: left,
     child: Wrap(
       children: [
-        dec_container(),
+        dec_container(Color1, Color2),
       ],
     ),
   );
@@ -91,8 +94,6 @@ cont(img_url, title, description, url, context) {
                   child: GestureDetector(
                     onTap: () {
                       interstitialAd.load();
-                      interstitialAd.show();
-                      
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -100,6 +101,7 @@ cont(img_url, title, description, url, context) {
                                   url: url,
                                 )),
                       );
+                      interstitialAd.show();
                     },
                     child: Text(
                       "read more..",

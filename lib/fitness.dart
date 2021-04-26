@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:strawberry/home.dart';
+
 import 'package:strawberry/main.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:strawberry/functions.dart';
-import 'package:strawberry/home.dart';
+
 import 'package:strawberry/fitness.dart';
 
 var selectedlist = [];

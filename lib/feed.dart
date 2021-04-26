@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:strawberry/home.dart';
+
 import 'package:strawberry/main.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:strawberry/functions.dart';
-import 'package:strawberry/home.dart';
+
 import 'package:strawberry/fitness.dart';
 import 'package:strawberry/admob_services.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:strawberry/home.dart';
 // import 'package:strawberry/ads.dart';
 
 //data
@@ -56,26 +57,35 @@ BannerAd ban_ad = BannerAd(
     request: AdRequest());
 
 InterstitialAd interstitialAd = InterstitialAd(
-  // adUnitId: 'ca-app-pub-5524841399774996/6970868692',
-  //test
-  adUnitId: 'ca-app-pub-3940256099942544/1033173712',
-  request: AdRequest(),
-  listener: AdListener(
-    onAdClosed: (ad) {
-      print("Closed Ad");
-    },
-    onAdOpened: (ad) {
-      print("Opened Ad");
-    },
-  ),
-);
+    adUnitId: 'ca-app-pub-5524841399774996/6970868692',
+    // // //test
+    // adUnitId: 'ca-app-pub-3940256099942544/1033173712',
+    request: AdRequest(),
+    listener: AdListener(
+      // Called when an ad is successfully received.
+      onAdLoaded: (Ad ad) => print('Ad loaded.'),
+      // Called when an ad request failed.
+      onAdFailedToLoad: (Ad ad, LoadAdError error) {
+        ad.dispose();
+        print('Ad failed to load: $error');
+      },
+      // Called when an ad opens an overlay that covers the screen.
+      onAdOpened: (Ad ad) => print('Ad opened.'),
+      // Called when an ad removes an overlay that covers the screen.
+      onAdClosed: (Ad ad) {
+        ad.dispose();
+        print('Ad closed.');
+      },
+      // Called when an ad is in the process of leaving the application.
+      onApplicationExit: (Ad ad) => print('Left application.'),
+    ));
 
 class _feedState extends State<feed> {
   // @override
   // void initState() {
   //   // TODO: implement initState
   //   super.initState();
-  //   _interstitialAd.load();
+  //   interstitialAd.load();
   // }
 
   @override
@@ -90,23 +100,24 @@ class _feedState extends State<feed> {
       // backgroundColor: Color(0xff211E2D),
       // appBar: AppBar(),
       // backgroundColor: Colors.white,
-      // floatingActionButton: FloatingActionButton(
-      //     onPressed: () {
-      //       interstitialAd.load();
-      //       interstitialAd.show();
-      //       // interstitialAd.dispose();
-      //       // Navigator.push(
-      //       //   context,
-      //       //   MaterialPageRoute(builder: (context) => adspage()),
-      //       // );
-      //     },
-      //     child: update()),
+      floatingActionButton: FloatingActionButton(
+          backgroundColor: maincolor,
+          splashColor: Colors.white,
+          onPressed: () {
+            interstitialAd.dispose();
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => home()),
+            );
+          },
+          child: Icon(Icons.home_filled)),
       body: Stack(
         children: [
-          circle_left(-18.0, -90.0),
-          circle_left(400.0, -70.0),
-          circle_left(580.0, 350.0),
-          circle_left(200.0, 300.0),
+          circle_left(-18.0, -90.0, maincolor, secondary_color),
+          circle_left(580.0, 350.0, maincolor, secondary_color),
+          circle_left(400.0, -70.0, maincolor, secondary_color),
+
+          circle_left(200.0, 300.0, maincolor, secondary_color),
           Container(
             child: StreamBuilder(
               stream:
