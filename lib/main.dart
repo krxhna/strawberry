@@ -7,10 +7,14 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:strawberry/dummy_home.dart';
 import 'package:strawberry/feed.dart';
 import 'package:strawberry/functions.dart';
 import 'package:admob_flutter/admob_flutter.dart';
 import 'package:flutter/services.dart';
+import 'package:strawberry/vain/landingpage.dart';
+import 'home.dart';
+import 'package:strawberry/landlandpage.dart';
 
 Future<void> main() async {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -23,7 +27,7 @@ Future<void> main() async {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     title: 'Your title',
-    home: feed(),
+    home: landlandpage(),
   ));
 }
 

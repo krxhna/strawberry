@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:strawberry/fitness.dart';
-import 'Web.dart';
+import 'package:strawberry/vain/fitness.dart';
+import 'vain/Web.dart';
 import 'package:strawberry/feed.dart';
 
 // const maincolor = Color(0xff12c2e9);
 // const secondary_color = Color(0xffc471ed);
-const maincolor = Color(0xff00dc64);
+const maincolor = Color(0xff83FF22);
+const text_color = Colors.black;
+
+//bright green cool Color(0xff83FF22);
+
+// Color(0xff00dc64);
+
 const secondary_color = Color(0xff00dc64);
 
 var ran_colors = [Colors.amber, Colors.red, Colors.green, Colors.blue];

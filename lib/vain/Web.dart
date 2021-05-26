@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:strawberry/fitness.dart';
+import 'package:strawberry/vain/fitness.dart';
 import 'package:strawberry/functions.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'dart:math';
